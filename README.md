@@ -36,12 +36,20 @@ platform-addons: needed software to run locally. This currently contains amq-str
 platform-scripts: support running kafka, creating/listing and deleting topics needed for this solution and also building and packaging the solution as well. All the scripts are named to describe their capabilities 
 platform-testdata: sample transactions to leverage for using the platform.
 
+Sample HL7 messages can be downloaded from a wide variety of locations. However, we have selected several from
+here: https://docs.webchartnow.com/sample-hl7-messages-7974217.html or here: https://asiis.azdhs.gov/phchub/help/SampleHL7Msgs.htm
+
 # Scenario: Integration 
 This repository follows a very common general facility based implementation. The implementation
-is of a facility, we have named MCTN for an application we have named MMS. This implementation 
-specifically defines one HL7 socket server endpoint per datatype mentioned above.
-
+leverages the following key data attributes for reference (these are key in most integrations when implementing systems).<br/>
+Sending App:        HCMMS<br/>
+Sending Facility:   MCTN<br/>
+Receiving App:      MyMedical<br/>
+Receiving Facility: MCTN<br/>
+<br/>
 ## Integration Data Flow Steps
+This is a general overview for everyone. We will be tweaking the behavior, but can demonstrate at the end over Zoom how 
+the real time data flow if wanted.
  
 1. The HL7 client (external to this application) will connect to the specifically defined HL7
 Server socket (one socket per datatype) and typically stay connected.
@@ -55,7 +63,11 @@ Server socket (one socket per datatype) and typically stay connected.
     c. An acknowledgement will then be sent back to the hl7 client (this tells the client he can send the next message,
     if the client does not get this in a timely manner it will resend the same message again until he receives an ACK).<br/>
     d. The acknowledgement is also sent to the auditing topic location.<br/>
-    
+
+For this learning effort we will be using output HL7 files (this scenario is still widely used in healthcare to move data from
+clinical systems to platforms like data warehouses and sometimes even other systems every few minutes).
+
+
 # Builds
 This section will cover both local and automated builds.
 
