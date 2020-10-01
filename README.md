@@ -27,17 +27,7 @@ This platform is developed using Java and requires JDK 1.8 to run properly. You 
 We have had many developers leverage Java IDEs like IntelliJ ans various Eclipse implementations. Most of the resources leveraging this (and the mentors) have been leveraging the Community Edition of IntelliJ. There are also some editors such as Visual Studio Code that have java support which have been leveraged. 
 
 ## Kafka 
-In order to see data flowing to kafa there are several tools, we leverage <a href="https://www.kafkatool.com/" target="_blank">Kafka Tools</a>. You can download the tool from this site and follow ANY setup instructions.
-
-## Directories within Solution
-This solution contains three supporting directories. The intent of these artifacts to enable resources to work locally: 
-
-platform-addons: needed software to run locally. This currently contains amq-streams-1.5 (which is the upstream of Kafka 2.5)
-platform-scripts: support running kafka, creating/listing and deleting topics needed for this solution and also building and packaging the solution as well. All the scripts are named to describe their capabilities 
-platform-testdata: sample transactions to leverage for using the platform.
-
-Sample HL7 messages can be downloaded from a wide variety of locations. However, we have selected several from
-here: https://docs.webchartnow.com/sample-hl7-messages-7974217.html or here: https://asiis.azdhs.gov/phchub/help/SampleHL7Msgs.htm
+In order to see data flowing to kafka there are several tools, we leverage <a href="https://www.kafkatool.com/" target="_blank">Kafka Tools</a>. You can download the tool from this site and follow ANY setup instructions.
 
 # Installing Kafka (AMQ-Streams)
 Using the zip/tar file within platform-addons do the following (irrespective of the OS):
@@ -51,6 +41,16 @@ For Windows you have to leverage the kafka-2.12.2.6.0-zip
 So this means you will have c:\RedHatTech 
 2.  Unzip the kafka-2.12.2.6.0-zip to this new directory and you will have c:\RedHatTech\kafka-2.12.2.6.0\
 3.  Leverage the scripts start_kafka_windows.bat (it is very untested)
+
+## Directories within Solution
+This solution contains three supporting directories. The intent of these artifacts to enable resources to work locally: 
+
+platform-addons: needed software to run locally. This currently contains amq-streams-1.5 (which is the upstream of Kafka 2.5)
+platform-scripts: support running kafka, creating/listing and deleting topics needed for this solution and also building and packaging the solution as well. All the scripts are named to describe their capabilities 
+platform-testdata: sample transactions to leverage for using the platform.
+
+Sample HL7 messages can be downloaded from a wide variety of locations. However, we have selected several from
+here: https://docs.webchartnow.com/sample-hl7-messages-7974217.html or here: https://asiis.azdhs.gov/phchub/help/SampleHL7Msgs.htm
 
 # Scenario: Integration 
 This repository follows a very common general facility based implementation. The implementation
