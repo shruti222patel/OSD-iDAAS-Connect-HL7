@@ -47,8 +47,9 @@ Using the zip/tar file within platform-addons do the following (irrespective of 
 
 For Windows you have to leverage the kafka-2.12.2.6.0-zip
 
-1.  To keep technologies logically organized let make sure you create a directory named RedHatTech in the users home directory ($HOME on Mac or Linux / #HOMEDIR on Windows).
-2.  Unzip the kafka-2.12.2.6.0-zip to this new directory and you will have $User\RedHatTech\kafka-2.12.2.6.0\
+1.  To keep technologies logically organized let make sure you create a directory named RedHatTech in the root c:\.
+So this means you will have c:\RedHatTech 
+2.  Unzip the kafka-2.12.2.6.0-zip to this new directory and you will have c:\RedHatTech\kafka-2.12.2.6.0\
 3.  Leverage the scripts start_kafka_windows.bat (it is very untested)
 
 # Scenario: Integration 
