@@ -39,6 +39,18 @@ platform-testdata: sample transactions to leverage for using the platform.
 Sample HL7 messages can be downloaded from a wide variety of locations. However, we have selected several from
 here: https://docs.webchartnow.com/sample-hl7-messages-7974217.html or here: https://asiis.azdhs.gov/phchub/help/SampleHL7Msgs.htm
 
+# Installing Kafka (AMQ-Streams)
+Using the zip/tar file within platform-addons do the following (irrespective of the OS):
+1.  To keep technologies logically organized let make sure you create a directory named RedHatTech in the users home directory ($HOME on Mac or Linux / #HOMEDIR on Windows).
+2.  Unzip the amq-streams-1.5.0-bin.zip to this new directory and you will have $User\RedHatTech\kafka_2.12-2.5.0.redhat-00003\
+3.  On Linux or Mac you can leverage the scripts within platform-scripts/amq-streams/start-kafka.sh
+
+For Windows you have to leverage the kafka-2.12.2.6.0-zip
+
+1.  To keep technologies logically organized let make sure you create a directory named RedHatTech in the users home directory ($HOME on Mac or Linux / #HOMEDIR on Windows).
+2.  Unzip the kafka-2.12.2.6.0-zip to this new directory and you will have $User\RedHatTech\kafka-2.12.2.6.0\
+3.  Leverage the scripts start_kafka_windows.bat (it is very untested)
+
 # Scenario: Integration 
 This repository follows a very common general facility based implementation. The implementation
 leverages the following key data attributes for reference (these are key in most integrations when implementing systems).<br/>
@@ -66,7 +78,6 @@ Server socket (one socket per datatype) and typically stay connected.
 
 For this learning effort we will be using output HL7 files (this scenario is still widely used in healthcare to move data from
 clinical systems to platforms like data warehouses and sometimes even other systems every few minutes).
-
 
 # Builds
 This section will cover both local and automated builds.
