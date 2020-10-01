@@ -161,7 +161,7 @@ public class CamelConfiguration extends RouteBuilder {
     /*
      *    HL7v2 ADT
      */
-    from("kafka:localhost:9092?topic= mctn_mms_adt&brokers=localhost:9092")
+    from(getKafkaTopicUri("mctn_mms_adt"))
             .routeId("ADT-MiddleTier")
             // Auditing
             .setProperty("processingtype").constant("data")
