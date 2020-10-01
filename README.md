@@ -8,26 +8,35 @@ Because of this need in the 1980's a standard was created to help healthcare int
 
 ## Healthcare Integration Scenario
 Here is a case (Covid) that explains the healthcare experience of a patient and relates it to how HL7 enables systems to work together:<br/>
-A patient comes into the ER complaining of a cough and having a fever for several days. They also state their breathing has become labored over the last few hours. <br/> 
-1. Patient walks into ER and get triaged by Nurse. When the curse does this triage an admission (ADT) message is created to take patient information. This assigns him ready to receive care and also enables both the clinical and financial systems. The patient information can be changed or updaated easily and as these changes occur updated transactions and sent and routed to ALL relevant systems near real time. <br/>
-2. Doctor see patient and orders some lab tests and chest x-ray. The doctor's places an Order and an (ORM) message is created specific to this information and send and routed to all clinical and financial systems.<br/>
-3. When the lab or radiology resources completes the Order the systems will generate a Result (ORU) message and it will be updated with various information: the resource that draws the blood, the resource that reads the X-Ray and so forth. As the results come in from the chest X-rays and blood tests the ORU messages are updated with all the relevant information.
-4. The doctor wants to schedule the patient for ANY services, the system will then create a Schedule (SCH) message to ensure the appropriate services are booked.
+A Patient comes into the ER complaining of a cough and having a fever for several days. Patient also states that their breathing has become labored over the last few hours.
+1. Patient walks into ER and gets triaged by a Nurse. When the nurse does this triage an admission (ADT) message is created to take patient information. This assigns him ready to receive care and also enables both the clinical and financial systems. The patient information can be changed or updaated easily and as these changes occur updated transactions and sent and routed to ALL relevant systems near real time. <br/>
+1. A Doctor sees the patient and orders some lab tests and chest x-ray. The doctor places an Order and an (ORM) message is created specific to this information and sent to all clinical and financial systems.
+1. The Lab or Radiology resources completes the Order the systems will generate a Result (ORU) message and it will be updated with various information: the resource that draws the blood, the resource that reads the X-Ray and so forth. As the results come in from the chest X-rays and blood tests the ORU messages are updated with all the relevant information.
+1. The Doctor wants to schedule the Patient for ANY services, the system will then create a Schedule (SCH) message to ensure the appropriate services are booked.
 
 # Reporting New Issues/Bugs
 Please feel free to use the Issues tab to report any new issues and associate them to the label #bug
 
 # Setup
-This platform does require Kafka to run. To simplify the process we have built in a scripts directory and all the needed scripts to enable users. We have also included the needed files within this repository, to limit external downloads. The scripts are done from the perspective of the user leveraging a Mac and setting it up within the home directory and able to start everything from it simply. 
+This platform requires Kafka to run. To simplify the process we have built in a scripts directory with all the needed scripts to enable users. We have also included the needed files within this repository, to limit external downloads. The scripts are done from the perspective of a user leveraging a Mac and setting it up and runnit it within their home directory. 
 
 ## Java
-This platform is developed using Java and requires JDK 1.8 to run properly. You can find setup instructions for your operating system <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html" target="_blank">here</a>. We are not taking a position on OpenJDK or Oracle's JDK as both have been leveraged, we just included the link to Oracle's JDK.
+This platform is developed using Java and requires JDK 1.8 to run properly. You can find setup instructions for your operating system
+* [Oracle JDK](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html). 
+* [AdoptOpenJDK](https://adoptopenjdk.net/)
+* [OpenJDK])(https://openjdk.java.net/install/)
+
+We are not taking a position on OpenJDK or Oracle's JDK as both have been leveraged.  [AdoptOpenJDK](https://adoptopenjdk.net/) is a great (and easy) way to install OpenJDK.
 
 ## Java IDE ??
-We have had many developers leverage Java IDEs like IntelliJ ans various Eclipse implementations. Most of the resources leveraging this (and the mentors) have been leveraging the Community Edition of IntelliJ. There are also some editors such as Visual Studio Code that have java support which have been leveraged. 
+We have had many developers leverage Java IDEs like IntelliJ ans various Eclipse implementations. Most of the resources leveraging this (and the mentors) have been leveraging the Community Edition of IntelliJ. There are also some editors such as Visual Studio Code that have java support, written by our Red Hat colleagues, which have been leveraged. 
+
+* [Visual Studio Code] (https://code.visualstudio.com/)
+* [Eclipse](https://www.eclipse.org/ide/)
+* [IntelliJ Idea](https://www.jetbrains.com/idea/)
 
 ## Kafka 
-In order to see data flowing to kafka there are several tools, we leverage <a href="https://www.kafkatool.com/" target="_blank">Kafka Tools</a>. You can download the tool from this site and follow ANY setup instructions.
+In order to see data flowing to kafka there are several tools, we leverage [Kafka Tools](https://www.kafkatool.com/). You can download the tool from this site and follow ANY setup instructions.
 
 # Installing Kafka (AMQ-Streams)
 Using the zip/tar file within platform-addons do the following (irrespective of the OS):
