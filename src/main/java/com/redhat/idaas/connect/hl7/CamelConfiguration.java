@@ -120,7 +120,7 @@ public class CamelConfiguration extends RouteBuilder {
      *
      */
 	  // ADT
-	  from("file:src/data-in/hl7v2/adt?delete=true?noop=true"))
+	  from("file:src/data-in/hl7v2/ADT?delete=true?noop=true"))
           .routeId("hl7Admissions")
           .convertBodyTo(String.class)
           // set Auditing Properties
@@ -156,7 +156,20 @@ public class CamelConfiguration extends RouteBuilder {
           .setProperty("auditdetails").constant("ACK Processed")
           // iDAAS DataHub Processing
           .wireTap("direct:auditing")
+    ;
 
+    /*
+     *    HL7v2 ADT
+     */
+    from("kafka:localhost:9092?topic= mctn_mms_adt&brokers=localhost:9092")
+            .routeId("ADT-MiddleTier")
+            // Auditing
+            .setProperty("processingtype").constant("data")
+            .setProperty("appname").constant("iDAAS-ConnectClinical-IndustryStd")
+            .wireTap("direct:auditing")
+            // Enterprise Message By Sending App By Type
+            .to("kafka:localhost:9092?topic=mms_adt&brokers=localhost:9092")
+            //.wireTap("direct:auditing")
     ;
   }
 
